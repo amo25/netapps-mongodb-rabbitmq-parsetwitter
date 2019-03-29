@@ -11,7 +11,7 @@ def callback(ch, method, properties, body):
 
 channel.basic_consume(callback,
                       queue='hello',
-                      no_ack=True)
+                      no_ack=True) #automatically acknowledge mesages
 
 print(' [*] Waiting for messages. To exit press CTRL+C')
 channel.start_consuming()
