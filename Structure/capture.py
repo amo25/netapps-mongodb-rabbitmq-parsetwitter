@@ -44,18 +44,20 @@ def status(number):
 # TODO: SET UP TWITTER
 # key/token authorization stuffs
 def setTwitter():
-
+    print("TODO")
 # TODO : SET UP MONGO - NOSQL
 # mongo client stuffs to connect mongoDB
 # I think this is where you would put the message command in MongoDB datastore? idk
 def setNOSQL():
+    print("TODO")
 
 #Rabbit MQ
 #Prerequisite: exchanges, bindings, and queue's must be set up
 #Another function can be made for this, or we can use the web based gui
 def produce(Place, Subject, Message):
+    credentials = pika.PlainCredentials('Alex', 'MarioBaseball2572')
     connection = pika.BlockingConnection(
-    pika.ConnectionParameters(host='localhost')) #todo modify to connect pi's
+    pika.ConnectionParameters(host='localhost', credentials=credentials)) #todo modify to connect pi's
     channel = connection.channel()
 
     channel.basic_publish(
@@ -64,8 +66,9 @@ def produce(Place, Subject, Message):
     connection.close()
     
 def consume(Place, Subject):
+    credentials = pika.PlainCredentials('Alex', 'MarioBaseball2572')
     connection = pika.BlockingConnection(
-        pika.ConnectionParameters(host='localhost')) #todo replace with ip
+        pika.ConnectionParameters(host='localhost', credentials=credentials)) #todo replace with ip
     channel = connection.channel()
     #get all available messages then quit
     while(True):
@@ -84,4 +87,7 @@ def consume(Place, Subject):
 # /update led/messssage stuff/wait for response
 # print the message command sent
 while (True) :
+    produce('Library', 'Noise', 'Its ok. Medium volume')
+    produce('Library', 'Noise', 'Its probably quiet on fourth')
+    consume('Library', 'Noise')
     

@@ -1,11 +1,13 @@
 #TODO just set up a bunch of consumes?
 import pika
 
+credentials = pika.PlainCredentials('Alex', 'MarioBaseball2572')
+
 Place = 'Squires' #todo replace? Put in plaintext into each call, and make calls for all 3 excahanges, and all 8 queues?
 Subject = 'Food'
 
 connection = pika.BlockingConnection(
-    pika.ConnectionParameters(host='localhost')) #todo replace with ip
+    pika.ConnectionParameters(host='localhost', credentials=credentials)) #todo replace with ip
 channel = connection.channel()
 
 #Todo can comment back in to ensure that exchange exists
