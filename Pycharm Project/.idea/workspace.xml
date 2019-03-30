@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="005df1f6-7a97-4dad-812e-34b8f39ae2b9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/rabbitmq_produce_example.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rabbitmq_work_queues/new_task.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rabbitmq_work_queues/worker.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rabbitmq_receive.py" beforeDir="false" afterPath="$PROJECT_DIR$/rabbitmq_receive.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,7 +16,7 @@
         <entry file="file://$PROJECT_DIR$/rabbitmq_send.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="156">
-              <caret line="6" selection-end-line="18" selection-end-column="18" />
+              <caret line="6" selection-end-line="21" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -28,7 +24,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rabbitmq_produce_example.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
+            <state relative-caret-position="468">
               <caret line="18" column="18" lean-forward="true" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
             </state>
           </provider>
@@ -83,10 +79,10 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/rabbitmq_send.py" />
-        <option value="$PROJECT_DIR$/rabbitmq_receive.py" />
         <option value="$PROJECT_DIR$/rabbitmq_produce_example.py" />
         <option value="$PROJECT_DIR$/rabbitmq_work_queues/worker.py" />
         <option value="$PROJECT_DIR$/rabbitmq_work_queues/new_task.py" />
+        <option value="$PROJECT_DIR$/rabbitmq_receive.py" />
       </list>
     </option>
   </component>
@@ -107,11 +103,6 @@
             <path>
               <item name="Pycharm Project" type="b2602c69:ProjectViewProjectNode" />
               <item name="Pycharm Project" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Pycharm Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pycharm Project" type="462c0819:PsiDirectoryNode" />
-              <item name="rabbitmq_work_queues" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -200,14 +191,7 @@
     <entry file="file://$PROJECT_DIR$/rabbitmq_send.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="156">
-          <caret line="6" selection-end-line="18" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rabbitmq_receive.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="16" column="25" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
+          <caret line="6" selection-end-line="21" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -231,9 +215,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/rabbitmq_receive.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="16" column="25" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/rabbitmq_produce_example.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
+        <state relative-caret-position="468">
           <caret line="18" column="18" lean-forward="true" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
         </state>
       </provider>
