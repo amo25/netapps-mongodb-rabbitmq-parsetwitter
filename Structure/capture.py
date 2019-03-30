@@ -11,7 +11,7 @@ import time
 #import Tweepy                       # for twitter
 #import pymongo                      # for nosql
 #from pymongo import MongoClient
-#import pika                         # for rabbitmq
+import pika                         # for rabbitmq
 #import captureKeys
 
 RED = 21
@@ -50,11 +50,31 @@ def setTwitter():
 # I think this is where you would put the message command in MongoDB datastore? idk
 def setNOSQL():
 
-# TODO: SET UP RABBITMQ
-# connection channel stuffs
-# setting up a connection and publishing/consuming messages from a queue
-def setRabbitMQ():
+#Rabbit MQ
+#Prerequisite: exchanges, bindings, and queue's must be set up
+#Another function can be made for this, or we can use the web based gui
+def produce(Place, Subject, Message):
+    connection = pika.BlockingConnection(
+    pika.ConnectionParameters(host='localhost')) #todo modify to connect pi's
+    channel = connection.channel()
 
+    channel.basic_publish(
+        exchange=Place, routing_key=Subject, body=Message)
+    print(" [x] Sent %r:%r" % (Subject, Message))
+    connection.close()
+    
+def consume(Place, Subject):
+    connection = pika.BlockingConnection(
+        pika.ConnectionParameters(host='localhost')) #todo replace with ip
+    channel = connection.channel()
+    #get all available messages then quit
+    while(True):
+        (method, properties, body) = channel.basic_get(queue=Subject, auto_ack=True)
+        if (method == None):
+            break
+        else:
+            print("%r:%r" % (method.routing_key, body))
+    
 # TODO : SOME FUNCTION TO PROCESS TWEET
 # splits to get Action, Place, MSGID, Subject, Message
 # return produce / consume message request
@@ -64,4 +84,4 @@ def setRabbitMQ():
 # /update led/messssage stuff/wait for response
 # print the message command sent
 while (True) :
-
+    
