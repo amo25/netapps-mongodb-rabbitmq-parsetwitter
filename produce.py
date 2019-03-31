@@ -3,8 +3,10 @@
 import pika
 #import sys
 
+credentials = pika.PlainCredentials('Alex', 'MarioBaseball2572')
+#parameters = pika.ConnectionParameters(credentials=credentials)
 connection = pika.BlockingConnection(
-    pika.ConnectionParameters(host='localhost')) #todo modify to connect pi's
+    pika.ConnectionParameters(host='localhost', credentials=credentials)) #todo modify to connect pi's
 channel = connection.channel()
 
 Place = 'Squires' #todo replace these with a funciton call that sets them

@@ -1,0 +1,12 @@
+After running db_insert.py...
+
+mongo (enters mongo shell)
+
+show dbs (show the databases)
+use test (enter the "test" database we created in db_insert.py)
+show collections
+db.utilization.count()
+db.utilization.find()
+db.utilization.remove({})
+
+Should I clean the database somehow at the end?
