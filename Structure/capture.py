@@ -92,18 +92,7 @@ def consume(host, Place, Subject):
             break
         else:
             print("%r:%r" % (method.routing_key, body))
-    
-
-
-#init
-setGPIO()
-#arguments
-if len(sys.argv) == 5:
-    host = sys.argv[2]
-    hashtag = sys.argv[4]
-else:
-    print("Argument format error. Use: python3 capture.py -s <SERVER_IP> -t \"<HASHTAG>\"")
-    
+        
 
 #parse the tweet
 def parse_tweet(original_tweet, hashtag):
@@ -165,6 +154,14 @@ class StdOutListener(StreamListener):
             print("Too many attempts made to connect to Twitter API stream. Wait a bit")
             return False
         
+#init
+setGPIO()
+#arguments
+if len(sys.argv) == 5:
+    host = sys.argv[2]
+    hashtag = sys.argv[4]
+else:
+    print("Argument format error. Use: python3 capture.py -s <SERVER_IP> -t \"<HASHTAG>\"")
 
 if __name__ == '__main__':
     set_led(0)
