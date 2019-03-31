@@ -14,6 +14,8 @@ consumer_secret="fpPBbkOpXc79AlPizGc4XuN5s5GW1HdZr7c7XSXBl4kK91O7RW"
 access_token="971136871-J1bbxHr2ocolO5zkM3gSrpfAMjK639lSu0hsthH6"
 access_token_secret="nAjbhswbThQ5j8NuPtwcE1OFVpHHXZ6iGjq99LqtdZBgJ"
 
+hashtag = "#ECE4564T19"
+
 class StdOutListener(StreamListener):
     """ A listener handles tweets that are received from the stream.
     This is a basic listener that just prints received tweets to stdout.
@@ -48,8 +50,10 @@ class StdOutListener(StreamListener):
 
         return True
 
+    #If you go over the number of attempts to connect to the streaming API
     def on_error(self, status_code):
         if status_code == 420:
+            print("Status code 420")
             return False
 
 if __name__ == '__main__':
@@ -58,4 +62,4 @@ if __name__ == '__main__':
     auth.set_access_token(access_token, access_token_secret)
 
     stream = Stream(auth, l)
-    stream.filter(track=['#ECE4564T19'])
+    stream.filter(track=[hashtag])

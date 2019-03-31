@@ -23,9 +23,9 @@ consumer_secret="fpPBbkOpXc79AlPizGc4XuN5s5GW1HdZr7c7XSXBl4kK91O7RW"
 access_token="971136871-J1bbxHr2ocolO5zkM3gSrpfAMjK639lSu0hsthH6"
 access_token_secret="nAjbhswbThQ5j8NuPtwcE1OFVpHHXZ6iGjq99LqtdZBgJ"
 
-RED = 21
-GREEN = 22
-BLUE = 23
+RED = 16
+GREEN = 20
+BLUE = 21
 
 # GPIO
 def setGPIO():
@@ -37,9 +37,9 @@ def setGPIO():
 def set_led(number):
     # white = waiting for a command
     if number == 0:
-        GPIO.output(RED, GPIO.LOW)
-        GPIO.output(GREEN, GPIO.LOW)
-        GPIO.output(BLUE, GPIO.LOW)
+        GPIO.output(RED, GPIO.HIGH)
+        GPIO.output(GREEN, GPIO.HIGH)
+        GPIO.output(BLUE, GPIO.HIGH)
     # red = received publish request
     elif number == 1:
         GPIO.output(RED, GPIO.HIGH)
@@ -51,9 +51,6 @@ def set_led(number):
         GPIO.output(GREEN, GPIO.HIGH)
         GPIO.output(BLUE, GPIO.LOW)
 
-#def read_tweet(hashtag):
-#    #all your stuff
-#    return (original_tweet, Action, Place, Subject, Message)
         
         
 #inserts a message to mongoDB
@@ -102,12 +99,9 @@ def consume(host, Place, Subject):
         else:
             print("%r:%r" % (method.routing_key, body))
     
-# TODO : SOME FUNCTION TO PROCESS TWEET
-# splits to get Action, Place, MSGID, Subject, Message
-# return produce / consume message request
+
 
 #init
-
 setGPIO()
 #arguments
 #hashtag = ''
@@ -117,11 +111,8 @@ if len(sys.argv) == 5:
 else:
     print("Argument format error. Use: python3 capture.py -s <SERVER_IP> -t \"<HASHTAG>\"")
     
-#def read_tweet(hashtag):
-#    #all your stuff
-#    return (original_tweet, Action, Place, Subject, Message)
 
-    #parse the tweet
+#parse the tweet
 def parse_tweet(original_tweet, hashtag):
     s = re.sub("\s*"+hashtag+"\s*","",original_tweet)
     command = s.split(':')[0]
@@ -182,7 +173,6 @@ class StdOutListener(StreamListener):
             return False
         
 
-#todo add status(0) somewhere
 if __name__ == '__main__':
     set_led(0)
     l = StdOutListener()
@@ -190,46 +180,11 @@ if __name__ == '__main__':
     auth.set_access_token(access_token, access_token_secret)
 
     stream = Stream(auth, l)
-    stream.filter(track=[hashtag]) #todo ensure it can handle this
+    stream.filter(track=[hashtag])
     
-
-# some loop to continuously check/process tweets
-# /update led/messssage stuff/wait for response
-# print the message command sent
-#while (True):
-#    status(0) #set LED to white while waiting for command
-#    #time.sleep(3) #todo remove
-#    #block until a tweet is read
-#    #parse the tweet
-#    Action = "c" #todo pull from tweet
-#    Place = "Squires"
-#    Subject = "Rooms" #todo allow it to fail gracefully if we attempt to consume from a nonexistant queue?
-#    Message = "This room is something"
-#    original_tweet = "#ECE4564T19 p:Squires+Rooms \"This room is something\""
-#    print("[Checkpoint 01 " + str(time.time()) + "] Tweet captured:" + original_tweet)
-#    
-#    #Store in mongoDB
-#    json_string = db_insert(Action,Place,Subject,Message)
-#    print("[Checkpoint 02 " + str(time.time()) + "] Store command in MongoDB instance: " + str(json_string))
-#    
-#    print("[Checkpoint 03 " + str(time.time()) + "] GPIO LED: ")
-#    if (Action == 'p'):
-#        print("[Checkpoint 04 " + str(time.time()) + "] Produce, Place=" + Place + ", Subject=" + Subject + ", Message=" + Message)
-#        status(1)
-#        print("[Checkpoint 05 " + str(time.time()) + "]")
-#        produce(host, Place, Subject, Message)
-#        
-#    elif (Action == 'c'):
-#        print("[Checkpoint 04 " + str(time.time()) + "] Consume, Place=" + Place + ", Subject=" + Subject)
-#        status(2)
-#        print("[Checkpoint 05 " + str(time.time()) + "]")
-#        consume(host, Place, Subject)
-        
-        
-    
-        
-    
-    #todo: error handling?
+  
+#todo: error handling?
+#todo: allow to fail gracefully if we attempt to read from a nonexistant queue?
     
     
     
