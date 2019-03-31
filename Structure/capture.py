@@ -15,13 +15,7 @@ from tweepy import OAuthHandler
 from tweepy import Stream
 import re
 #import captureKeys
-#todo
-consumer_key ="***REMOVED***"
-consumer_secret="***REMOVED***"
-
-
-access_token="***REMOVED***"
-access_token_secret="***REMOVED***"
+from captureKeys import *
 
 RED = 16
 GREEN = 20
@@ -30,7 +24,7 @@ BLUE = 21
 # GPIO
 def setGPIO():
     channels=[RED, GREEN, BLUE]
-    GPIO.setmode(GPIO.BCM) #todo did she want BCM or BOARD?
+    GPIO.setmode(GPIO.BCM) #Cable labeled with BCM numbers
     GPIO.setup(channels, GPIO.OUT, initial=GPIO.LOW)
 
 # LED STATUS
@@ -104,7 +98,6 @@ def consume(host, Place, Subject):
 #init
 setGPIO()
 #arguments
-#hashtag = ''
 if len(sys.argv) == 5:
     host = sys.argv[2]
     hashtag = sys.argv[4]
