@@ -6,11 +6,11 @@
 
 #print("Beginning")
 
-consumer_key ="***REMOVED***"
-consumer_secret="***REMOVED***"
+consumer_key ="<removed>"
+consumer_secret="<removed>"
 
 
-access_token="***REMOVED***"
-access_token_secret="***REMOVED***"
+access_token="<removed>"
+access_token_secret="<removed>"
 
 #print("End")
