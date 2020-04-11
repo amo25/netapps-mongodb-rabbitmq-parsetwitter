@@ -6,11 +6,11 @@
 
 #print("Beginning")
 
-consumer_key ="JdiNWuJilkltEyx7dw0pabzTb"
-consumer_secret="fpPBbkOpXc79AlPizGc4XuN5s5GW1HdZr7c7XSXBl4kK91O7RW"
+consumer_key ="<removed>"
+consumer_secret="<removed>"
 
 
-access_token="971136871-J1bbxHr2ocolO5zkM3gSrpfAMjK639lSu0hsthH6"
-access_token_secret="nAjbhswbThQ5j8NuPtwcE1OFVpHHXZ6iGjq99LqtdZBgJ"
+access_token="<removed>"
+access_token_secret="<removed>"
 
 #print("End")
