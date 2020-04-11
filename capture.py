@@ -70,7 +70,7 @@ def db_insert(Action, Place, Subject, Message):
 #Prerequisite: exchanges, bindings, and queue's must be set up
 #Another function can be made for this, or we can use the web based gui
 def produce(host, Place, Subject, Message):
-    credentials = pika.PlainCredentials('Alex', '***REMOVED***')
+    credentials = pika.PlainCredentials('Alex', '<removed>')
     connection = pika.BlockingConnection(
     pika.ConnectionParameters(host=host, credentials=credentials)) #todo modify to connect pi's
     channel = connection.channel()
@@ -81,7 +81,7 @@ def produce(host, Place, Subject, Message):
     connection.close()
     
 def consume(host, Place, Subject):
-    credentials = pika.PlainCredentials('Alex', '***REMOVED***')
+    credentials = pika.PlainCredentials('Alex', '<removed>')
     connection = pika.BlockingConnection(
         pika.ConnectionParameters(host=host, credentials=credentials)) #todo replace with ip
     channel = connection.channel()
